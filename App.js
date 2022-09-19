@@ -14,35 +14,48 @@ export default function App() {
 
       <Text style={styles.title}>Badges</Text>
 
-        <View style={styles.badges}><Badge>3</Badge></View>
+        <View style={styles.badgeArea}>
+          <Badge style={styles.badge}>1</Badge>
+          <Badge style={styles.badge}>2</Badge>
+          <Badge style={styles.badge}>3</Badge>
+        </View>
 
       <Text style={styles.title}>Cursos</Text>
 
-      <List.Item
-        title="First Item"
-        description="Item description"
-        left={props => <List.Icon color={'#ff0000'} icon="account-circle" />}
+      <List.Accordion
+        title="Curso"
+        description= {props => <ProgressBar style={styles.progressBar} progress={0.4} color={'#cc0000'} />}
+        left={props => <List.Icon color={'#cc0000'} icon="account-circle" />}
+        
       />
-      <ProgressBar style={styles.progressBar} progress={0.4} color={'#ff0000'} />
-      <ProgressBar style={styles.progressBar} progress={0.7} color={'#888888'} />
 
-      <List.Item
+      <List.Accordion
         title="First Item"
-        description="Item description"
-        left={props => <List.Icon color={'#00ff00'} icon="account-circle" />}
+        description={props => <ProgressBar style={styles.progressBar} progress={0.6} color={'#00cc00'} />}
+        left={props => <List.Icon color={'#00cc00'} icon="account-circle" />}
       />
-      <ProgressBar style={styles.progressBar} progress={0.6} color={'#00ff00'} />
-      <ProgressBar style={styles.progressBar} progress={0.6} color={'#888888'} />
 
-      <List.Item
+      <List.Accordion
+        style={styles.cursoLista}
         title="First Item"
-        description="Item description"
-        left={props => <List.Icon color={'#0000ff'} icon="account-circle" />}
+        left={props => <List.Icon color={'#0000cc'} icon="account-circle" />}
+      >
+      
+      <List.Item
+        style={styles.itemCurso}
+        title="Aula mais recente"
+        description="13/10/2022"
+        left={props => <List.Icon color={'#000000'} icon="book-clock" />}
       />
-      <ProgressBar style={styles.progressBar} progress={0.7} color={'#0000ff'} />
-      <ProgressBar style={styles.progressBar} progress={0.5} color={'#888888'} />
+      <List.Item
+        style={styles.itemCurso}
+        title="Tarefa mais recente"
+        description="13/10/2022"
+        left={props => <List.Icon color={'#000000'} icon="calendar-clock" />}
+      />
 
-
+      </List.Accordion>
+      <ProgressBar progress={0.7} color={'#0000cc'} />
     </View>
   );
 }
@@ -56,20 +69,35 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: '#0000aa',
   },
-  badges: {
-    justifyContent: 'space-between',
+  badgeArea: {
+    flexDirection: "row",
+    justifyContent: 'space-evenly',
     alignItems: 'center',
+    width: '100%',
+  },
+  badge: {
+    width: 80,
+    height: 80,
+    borderRadius: 100,
   },
   title: {
     fontSize: 24,
-    marginTop: 24,
-    marginBottom: 24,
-    marginLeft: 24,
+    marginTop: "5%",
+    marginBottom: "5%",
+    marginLeft: "5%",
   },
   headerTitle: {
     color: '#ffffff',
   },
   progressBar: {
-    height: 8,
+    height: 6,
+    width: 200,
+    borderRadius: 100,
   },
+  cursoLista: {
+    backgroundColor: '#f',
+  },
+  itemCurso: {
+    marginLeft: 24,
+  }
 });
