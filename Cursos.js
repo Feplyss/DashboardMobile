@@ -17,7 +17,7 @@ const Cursos = {
     sql: {
         nome: 'SQL',
         imagem: require('./assets/sql.png'),
-        cor: '#00cccc',
+        cor: '#cccc00',
     },
     cpp: {
         nome: 'C++',

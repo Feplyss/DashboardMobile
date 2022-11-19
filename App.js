@@ -33,7 +33,7 @@ const Curso = (props) => {
 
       <List.Accordion
         style={styles.cursoLista}
-        title={<Text style={styles.cursoTitulo}>{text}</Text>}
+        title={<View><Text style={styles.cursoTitulo}>{text}</Text> <ProgressBar style={styles.cursoBarra} ProgressBar progress={0.6} color={color} /></View>}
         left={props => <Image style={styles.cursoImagem} source={img} />}
       >
 
@@ -57,7 +57,6 @@ const Curso = (props) => {
         />
 
       </List.Accordion>
-      <ProgressBar progress={0.6} color={color} />
 
     </View>
   );
@@ -89,8 +88,10 @@ export default function App() {
       <Title text = 'Cursos'/>
 
       <Curso img={Cursos.java.imagem} text={Cursos.java.nome} color={Cursos.java.cor} />
-
       <Curso img={Cursos.nodejs.imagem} text={Cursos.nodejs.nome} color={Cursos.nodejs.cor} />
+      <Curso img={Cursos.python.imagem} text={Cursos.python.nome} color={Cursos.python.cor} />
+      <Curso img={Cursos.cpp.imagem} text={Cursos.cpp.nome} color={Cursos.cpp.cor} />
+      <Curso img={Cursos.sql.imagem} text={Cursos.sql.nome} color={Cursos.sql.cor} />
     </View>
   );
 }
@@ -171,6 +172,12 @@ const styles = StyleSheet.create({
   },
   cursoTitulo: {
     fontWeight: 500,
-    marginTop: 10,
+    marginBottom: 8,
+  },
+  cursoBarra: {
+    width: 200,
+    marginRight: 24,
+    borderRadius: 100,
+    marginBottom: 4,
   }
 });
